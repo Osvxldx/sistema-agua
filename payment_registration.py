@@ -99,16 +99,26 @@ class PaymentRegistrationWindow:
         inner_frame.pack(fill=tk.X, padx=10, pady=10)
         
         # Búsqueda por número
-        tk.Label(inner_frame, text="Número:", font=('Arial', 10)).pack(side=tk.LEFT)
+        tk.Label(
+            inner_frame, 
+            text="Número:", 
+            font=('Arial', 11, 'bold'),
+            fg='#2c3e50'
+        ).pack(side=tk.LEFT)
         
         self.search_number_var = tk.StringVar()
         self.search_number_entry = tk.Entry(
             inner_frame,
             textvariable=self.search_number_var,
             width=10,
-            font=('Arial', 10)
+            font=('Arial', 12),
+            bg='white',
+            fg='#2c3e50',
+            relief='solid',
+            bd=1,
+            insertbackground='#3498db'
         )
-        self.search_number_entry.pack(side=tk.LEFT, padx=(5, 10))
+        self.search_number_entry.pack(side=tk.LEFT, padx=(8, 15))
         self.search_number_entry.bind('<Return>', self.search_user_by_number)
         
         # Botón buscar por número
@@ -126,16 +136,26 @@ class PaymentRegistrationWindow:
         tk.Label(inner_frame, text="|", font=('Arial', 10)).pack(side=tk.LEFT, padx=10)
         
         # Búsqueda por nombre
-        tk.Label(inner_frame, text="Nombre:", font=('Arial', 10)).pack(side=tk.LEFT)
+        tk.Label(
+            inner_frame, 
+            text="Nombre:", 
+            font=('Arial', 11, 'bold'),
+            fg='#2c3e50'
+        ).pack(side=tk.LEFT)
         
         self.search_name_var = tk.StringVar()
         self.search_name_entry = tk.Entry(
             inner_frame,
             textvariable=self.search_name_var,
             width=20,
-            font=('Arial', 10)
+            font=('Arial', 12),
+            bg='white',
+            fg='#2c3e50',
+            relief='solid',
+            bd=1,
+            insertbackground='#3498db'
         )
-        self.search_name_entry.pack(side=tk.LEFT, padx=(5, 10))
+        self.search_name_entry.pack(side=tk.LEFT, padx=(8, 15))
         self.search_name_entry.bind('<KeyRelease>', self.on_name_search_change)
         
         # Lista de sugerencias para nombres
@@ -279,7 +299,12 @@ class PaymentRegistrationWindow:
         add_concept_frame = tk.Frame(concepts_frame)
         add_concept_frame.pack(fill=tk.X, padx=10, pady=5)
         
-        tk.Label(add_concept_frame, text="Concepto:", font=('Arial', 10)).pack(side=tk.LEFT)
+        tk.Label(
+            add_concept_frame, 
+            text="Concepto:", 
+            font=('Arial', 11, 'bold'),
+            fg='#2c3e50'
+        ).pack(side=tk.LEFT)
         
         # ComboBox para seleccionar concepto
         self.concept_var = tk.StringVar()
@@ -288,21 +313,32 @@ class PaymentRegistrationWindow:
             textvariable=self.concept_var,
             state="readonly",
             width=20,
-            font=('Arial', 10)
+            font=('Arial', 12),
+            height=6
         )
-        self.concept_combo.pack(side=tk.LEFT, padx=(5, 10))
+        self.concept_combo.pack(side=tk.LEFT, padx=(8, 15))
         self.concept_combo.bind('<<ComboboxSelected>>', self.on_concept_selected)
         
-        tk.Label(add_concept_frame, text="Precio:", font=('Arial', 10)).pack(side=tk.LEFT)
+        tk.Label(
+            add_concept_frame, 
+            text="Precio:", 
+            font=('Arial', 11, 'bold'),
+            fg='#2c3e50'
+        ).pack(side=tk.LEFT)
         
         self.concept_price_var = tk.StringVar()
         self.concept_price_entry = tk.Entry(
             add_concept_frame,
             textvariable=self.concept_price_var,
             width=10,
-            font=('Arial', 10)
+            font=('Arial', 12),
+            bg='white',
+            fg='#2c3e50',
+            relief='solid',
+            bd=1,
+            insertbackground='#3498db'
         )
-        self.concept_price_entry.pack(side=tk.LEFT, padx=(5, 10))
+        self.concept_price_entry.pack(side=tk.LEFT, padx=(8, 15))
         
         add_concept_btn = tk.Button(
             add_concept_frame,
