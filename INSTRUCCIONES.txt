@@ -1,0 +1,94 @@
+# INSTRUCCIONES DE INSTALACIÓN Y USO
+## Sistema de Gestión de Agua Potable
+
+### 📦 PASO 1: DESCOMPRIMIR
+- Extraiga TODOS los archivos en una carpeta
+- Ejemplo: `C:\SistemaAguaPotable\`
+- No ejecute desde dentro del archivo comprimido
+
+### 🚀 PASO 2: INSTALACIÓN AUTOMÁTICA (RECOMENDADO)
+
+1. **Clic derecho** en `install.bat`
+2. Seleccionar **"Ejecutar como administrador"**
+3. Seguir instrucciones en pantalla
+
+El instalador:
+- ✅ Verifica si Python está instalado
+- ✅ Instala las dependencias necesarias
+- ✅ Crea las carpetas requeridas
+- ✅ Prepara el sistema para uso
+
+### 🐍 PASO 3: SI NO TIENE PYTHON
+
+Si el instalador dice que no tiene Python:
+
+1. Ir a: **https://python.org**
+2. Descargar Python 3.8 o superior
+3. Durante la instalación:
+   - ✅ **MARCAR: "Add Python to PATH"**
+   - ✅ **MARCAR: "Install for all users"**
+4. Reiniciar la computadora
+5. Ejecutar `install.bat` nuevamente
+
+### ▶️ PASO 4: EJECUTAR EL SISTEMA
+
+**Método 1 (Fácil):**
+- Doble clic en `main.py`
+
+**Método 2 (Alternativo):**
+- Abrir CMD en la carpeta
+- Escribir: `python main.py`
+
+### 🔐 PASO 5: PRIMER USO
+
+1. **PIN inicial:** `1234`
+2. **Ir a Configuración:**
+   - Cambiar PIN de seguridad
+   - Configurar información del comité
+   - Ajustar cuota mensual
+3. **Agregar usuarios:**
+   - Gestión de Usuarios → Nuevo Usuario
+   - O importar desde CSV
+
+### 📋 ¿QUÉ INCLUYE EL SISTEMA?
+
+- ✅ Gestión completa de usuarios
+- ✅ Registro de pagos mensuales
+- ✅ Conceptos adicionales (cooperaciones, multas)
+- ✅ Generación automática de recibos PDF
+- ✅ Configuración flexible
+- ✅ Respaldos de seguridad
+- ✅ Importación desde Excel/CSV
+
+### 🆘 SOLUCIÓN DE PROBLEMAS
+
+**❌ Error: "Python no encontrado"**
+- Instalar Python desde python.org
+- Marcar "Add to PATH" durante instalación
+
+**❌ Error: "No se pueden instalar dependencias"**
+- Verificar conexión a internet
+- Ejecutar como administrador
+
+**❌ Error al abrir el sistema**
+- Verificar que todos los archivos estén extraídos
+- No ejecutar desde dentro del ZIP
+
+**❌ No genera recibos PDF**
+- Ejecutar: `pip install reportlab`
+- Verificar permisos de escritura
+
+### 📞 SOPORTE
+
+Si tiene problemas:
+1. Leer este archivo completo
+2. Verificar que siguió todos los pasos
+3. Contactar al desarrollador con detalles del error
+
+---
+
+### 🎯 INICIO RÁPIDO
+
+1. Extraer archivos → 2. Ejecutar `install.bat` → 3. Doble clic `main.py` → 4. PIN: `1234`
+
+**¡Listo para usar!** 🎉
