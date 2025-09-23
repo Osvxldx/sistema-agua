@@ -82,33 +82,58 @@ class UserManagementWindow:
         search_frame.pack(fill=tk.X, pady=(0, 10))
         
         # Búsqueda por número
-        tk.Label(search_frame, text="Buscar por número:", font=('Arial', 10)).pack(side=tk.LEFT)
+        tk.Label(
+            search_frame, 
+            text="Buscar por número:", 
+            font=('Arial', 11, 'bold'),
+            fg='#2c3e50'
+        ).pack(side=tk.LEFT)
         
         self.search_number_var = tk.StringVar()
         search_number_entry = tk.Entry(
             search_frame,
             textvariable=self.search_number_var,
             width=10,
-            font=('Arial', 10)
+            font=('Arial', 12),
+            bg='white',
+            fg='#2c3e50',
+            relief='solid',
+            bd=1,
+            insertbackground='#3498db'
         )
-        search_number_entry.pack(side=tk.LEFT, padx=(5, 10))
+        search_number_entry.pack(side=tk.LEFT, padx=(5, 15))
         search_number_entry.bind('<KeyRelease>', self.on_search_change)
         
         # Búsqueda por nombre
-        tk.Label(search_frame, text="Buscar por nombre:", font=('Arial', 10)).pack(side=tk.LEFT)
+        tk.Label(
+            search_frame, 
+            text="Buscar por nombre:", 
+            font=('Arial', 11, 'bold'),
+            fg='#2c3e50'
+        ).pack(side=tk.LEFT)
         
         self.search_name_var = tk.StringVar()
         search_name_entry = tk.Entry(
             search_frame,
             textvariable=self.search_name_var,
             width=20,
-            font=('Arial', 10)
+            font=('Arial', 12),
+            bg='white',
+            fg='#2c3e50',
+            relief='solid',
+            bd=1,
+            insertbackground='#3498db'
         )
-        search_name_entry.pack(side=tk.LEFT, padx=(5, 10))
+        search_name_entry.pack(side=tk.LEFT, padx=(5, 15))
         search_name_entry.bind('<KeyRelease>', self.on_search_change)
         
         # Filtro por estado
-        tk.Label(search_frame, text="Estado:", font=('Arial', 10)).pack(side=tk.LEFT)
+        tk.Label(
+            search_frame, 
+            text="Estado:", 
+            font=('Arial', 11, 'bold'),
+            fg='#2c3e50'
+        ).pack(side=tk.LEFT)
         
         self.status_filter_var = tk.StringVar(value="Todos")
         status_combo = ttk.Combobox(
@@ -116,7 +141,9 @@ class UserManagementWindow:
             textvariable=self.status_filter_var,
             values=["Todos", "Activo", "Cancelado"],
             state="readonly",
-            width=10
+            width=10,
+            font=('Arial', 12),
+            height=6
         )
         status_combo.pack(side=tk.LEFT, padx=(5, 10))
         status_combo.bind('<<ComboboxSelected>>', self.on_search_change)
@@ -196,37 +223,70 @@ class UserManagementWindow:
         for i, (label_text, var, readonly) in enumerate(fields):
             # Frame para cada campo
             field_frame = tk.Frame(details_frame)
-            field_frame.pack(fill=tk.X, pady=5)
+            field_frame.pack(fill=tk.X, pady=8)
             
-            # Label
-            label = tk.Label(field_frame, text=label_text, font=('Arial', 10), width=12, anchor='w')
+            # Label con mejor estilo
+            label = tk.Label(
+                field_frame, 
+                text=label_text, 
+                font=('Arial', 11, 'bold'), 
+                width=12, 
+                anchor='w',
+                fg='#2c3e50'
+            )
             label.pack(side=tk.LEFT)
             
-            # Entry
-            entry = tk.Entry(
-                field_frame,
-                textvariable=var,
-                font=('Arial', 10),
-                state='readonly' if readonly else 'normal'
-            )
-            entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(5, 0))
+            # Entry con mejor legibilidad
+            if readonly:
+                entry = tk.Entry(
+                    field_frame,
+                    textvariable=var,
+                    font=('Arial', 12, 'bold'),
+                    state='readonly',
+                    bg='#ecf0f1',
+                    fg='#2c3e50',
+                    relief='solid',
+                    bd=1,
+                    justify='center'
+                )
+            else:
+                entry = tk.Entry(
+                    field_frame,
+                    textvariable=var,
+                    font=('Arial', 12),
+                    bg='white',
+                    fg='#2c3e50',
+                    relief='solid',
+                    bd=1,
+                    insertbackground='#3498db'
+                )
+            entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(10, 0))
             
             self.entry_widgets[label_text.replace(':', '')] = entry
         
         # Campo estado (ComboBox)
         status_frame = tk.Frame(details_frame)
-        status_frame.pack(fill=tk.X, pady=5)
+        status_frame.pack(fill=tk.X, pady=8)
         
-        tk.Label(status_frame, text="Estado:", font=('Arial', 10), width=12, anchor='w').pack(side=tk.LEFT)
+        status_label = tk.Label(
+            status_frame, 
+            text="Estado:", 
+            font=('Arial', 11, 'bold'), 
+            width=12, 
+            anchor='w',
+            fg='#2c3e50'
+        )
+        status_label.pack(side=tk.LEFT)
         
         self.status_combo = ttk.Combobox(
             status_frame,
             textvariable=self.user_status_var,
             values=["Activo", "Cancelado"],
             state="readonly",
-            font=('Arial', 10)
+            font=('Arial', 12),
+            height=6
         )
-        self.status_combo.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(5, 0))
+        self.status_combo.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(10, 0))
         
         # Botones de acción
         buttons_frame = tk.Frame(details_frame)
@@ -518,11 +578,24 @@ class NewUserDialog:
         self.phone_var = tk.StringVar()
         self.email_var = tk.StringVar()
         
+        # Obtener y asignar el siguiente número automáticamente
+        self.auto_assign_number()
+        
         # Configurar la interfaz
         self.setup_ui()
         
-        # Enfocar el primer campo
-        self.number_entry.focus()
+        # Enfocar el campo de nombre (ya que el número es automático)
+        self.name_entry.focus()
+    
+    def auto_assign_number(self):
+        """Asigna automáticamente el siguiente número disponible"""
+        try:
+            db = get_db_manager()
+            next_number = db.get_next_user_number()
+            self.number_var.set(str(next_number))
+        except Exception as e:
+            # En caso de error, usar 1 como valor por defecto
+            self.number_var.set("1")
     
     def center_window(self):
         """Centra la ventana en la pantalla"""
@@ -550,30 +623,65 @@ class NewUserDialog:
         
         # Campos del formulario
         fields = [
-            ("Número:", self.number_var, True),  # True = obligatorio
-            ("Nombre:", self.name_var, True),
-            ("Dirección:", self.address_var, False),
-            ("Teléfono:", self.phone_var, False),
-            ("Email:", self.email_var, False)
+            ("Número:", self.number_var, True, True),   # True = obligatorio, True = readonly
+            ("Nombre:", self.name_var, True, False),
+            ("Dirección:", self.address_var, False, False),
+            ("Teléfono:", self.phone_var, False, False),
+            ("Email:", self.email_var, False, False)
         ]
         
-        for label_text, var, required in fields:
+        for label_text, var, required, readonly in fields:
             # Frame para cada campo
             field_frame = tk.Frame(main_frame)
-            field_frame.pack(fill=tk.X, pady=5)
+            field_frame.pack(fill=tk.X, pady=8)
             
             # Label con asterisco si es obligatorio
             label_display = f"{label_text} *" if required else label_text
-            label = tk.Label(field_frame, text=label_display, font=('Arial', 10), width=12, anchor='w')
+            if label_text == "Número:":
+                label_display += " (Automático)"
+            
+            label = tk.Label(
+                field_frame, 
+                text=label_display, 
+                font=('Arial', 11, 'bold'), 
+                width=15, 
+                anchor='w',
+                fg='#2c3e50'
+            )
             label.pack(side=tk.LEFT)
             
-            # Entry
-            entry = tk.Entry(field_frame, textvariable=var, font=('Arial', 10))
-            entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(5, 0))
+            # Entry con mejores estilos para legibilidad
+            if readonly:
+                entry = tk.Entry(
+                    field_frame, 
+                    textvariable=var, 
+                    font=('Arial', 12, 'bold'),
+                    state='readonly',
+                    bg='#ecf0f1',
+                    fg='#2c3e50',
+                    relief='solid',
+                    bd=1,
+                    justify='center'
+                )
+            else:
+                entry = tk.Entry(
+                    field_frame, 
+                    textvariable=var, 
+                    font=('Arial', 12),
+                    bg='white',
+                    fg='#2c3e50',
+                    relief='solid',
+                    bd=1,
+                    insertbackground='#3498db'
+                )
             
-            # Guardar referencia al entry del número
+            entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(10, 0))
+            
+            # Guardar referencias
             if label_text == "Número:":
                 self.number_entry = entry
+            elif label_text == "Nombre:":
+                self.name_entry = entry
         
         # Nota sobre campos obligatorios
         note_label = tk.Label(
@@ -620,15 +728,21 @@ class NewUserDialog:
             numero = self.number_var.get().strip()
             nombre = self.name_var.get().strip()
             
-            if not numero or not nombre:
-                messagebox.showwarning("Advertencia", "Por favor complete todos los campos obligatorios")
+            if not nombre:
+                messagebox.showwarning("Advertencia", "Por favor ingrese el nombre del usuario")
+                self.name_entry.focus()
+                return
+            
+            # El número ya está asignado automáticamente, pero validamos por seguridad
+            if not numero:
+                messagebox.showerror("Error", "Error interno: No se pudo asignar número automáticamente")
                 return
             
             # Validar que el número sea numérico
             try:
                 numero = int(numero)
             except ValueError:
-                messagebox.showwarning("Advertencia", "El número debe ser un valor numérico")
+                messagebox.showerror("Error", "Error interno: Número inválido")
                 return
             
             # Crear el usuario

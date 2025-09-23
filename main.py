@@ -16,9 +16,21 @@ from configuration import ConfigurationWindow
 class MainApplication:
     def __init__(self):
         self.root = tk.Tk()
-        self.root.title("Sistema de Gestión de Agua Potable")
-        self.root.geometry("800x600")
+        self.root.title("💧 Sistema de Gestión de Agua Potable - Versión Profesional")
+        self.root.geometry("900x650")
         self.root.resizable(True, True)
+        
+        # Colores mejorados pero compatibles
+        self.colors = {
+            'primary': '#2980b9',      # Azul profesional
+            'secondary': '#3498db',    # Azul claro
+            'success': '#27ae60',      # Verde
+            'warning': '#f39c12',      # Naranja
+            'danger': '#e74c3c',       # Rojo
+            'dark': '#2c3e50',         # Azul oscuro
+            'light': '#ecf0f1',        # Gris claro
+            'white': '#ffffff'         # Blanco
+        }
         
         # Configurar el icono de la ventana (si existe)
         self.set_window_icon()
@@ -30,20 +42,29 @@ class MainApplication:
         self.logo_image = None
         self.example_image = None
         
-        # Configurar la interfaz
-        self.setup_ui()
+        # Configurar la interfaz mejorada
+        self.setup_improved_ui()
         
         # Configurar eventos
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
     
-    def create_menu(self):
-        """Crea la barra de menú"""
-        menubar = tk.Menu(self.root)
+    def create_improved_menu(self):
+        """Crea la barra de menú mejorada"""
+        menubar = tk.Menu(self.root, 
+                         bg=self.colors['white'], 
+                         fg=self.colors['dark'],
+                         activebackground=self.colors['primary'],
+                         activeforeground=self.colors['white'],
+                         font=('Segoe UI', 9))
         self.root.config(menu=menubar)
         
-        # Menú Sistema
-        system_menu = tk.Menu(menubar, tearoff=0)
-        menubar.add_cascade(label="Sistema", menu=system_menu)
+        # Menú Sistema con mejor diseño
+        system_menu = tk.Menu(menubar, tearoff=0,
+                             bg=self.colors['white'],
+                             fg=self.colors['dark'],
+                             activebackground=self.colors['primary'],
+                             activeforeground=self.colors['white'])
+        menubar.add_cascade(label="🏠 Sistema", menu=system_menu)
         system_menu.add_command(label="🏠 Menú Principal", command=self.show_main_window)
         system_menu.add_separator()
         system_menu.add_command(label="📊 Importar CSV", command=self.open_csv_importer)
@@ -51,17 +72,25 @@ class MainApplication:
         system_menu.add_command(label="🚪 Salir", command=self.on_closing)
         
         # Menú Módulos
-        modules_menu = tk.Menu(menubar, tearoff=0)
-        menubar.add_cascade(label="Módulos", menu=modules_menu)
+        modules_menu = tk.Menu(menubar, tearoff=0,
+                              bg=self.colors['white'],
+                              fg=self.colors['dark'],
+                              activebackground=self.colors['primary'],
+                              activeforeground=self.colors['white'])
+        menubar.add_cascade(label="⚙️ Módulos", menu=modules_menu)
         modules_menu.add_command(label="👥 Gestión de Usuarios", command=self.open_user_management)
         modules_menu.add_command(label="💰 Registro de Pagos", command=self.open_payment_registration)
-        modules_menu.add_command(label="⚙️ Configuración", command=self.open_configuration)
+        modules_menu.add_command(label="⚙️ Configuración del Sistema", command=self.open_configuration)
         
         # Menú Ayuda
-        help_menu = tk.Menu(menubar, tearoff=0)
-        menubar.add_cascade(label="Ayuda", menu=help_menu)
-        help_menu.add_command(label="❓ Instrucciones", command=self.show_instructions)
-        help_menu.add_command(label="ℹ️ Acerca de", command=self.show_about)
+        help_menu = tk.Menu(menubar, tearoff=0,
+                           bg=self.colors['white'],
+                           fg=self.colors['dark'],
+                           activebackground=self.colors['primary'],
+                           activeforeground=self.colors['white'])
+        menubar.add_cascade(label="❓ Ayuda", menu=help_menu)
+        help_menu.add_command(label="📖 Instrucciones de Uso", command=self.show_instructions)
+        help_menu.add_command(label="ℹ️ Acerca del Sistema", command=self.show_about)
     
     def set_window_icon(self):
         """Configura el icono de la ventana si existe"""
@@ -84,224 +113,348 @@ class MainApplication:
         y = (self.root.winfo_screenheight() // 2) - (height // 2)
         self.root.geometry(f'{width}x{height}+{x}+{y}')
     
-    def setup_ui(self):
-        """Configura la interfaz de usuario"""
-        # Crear menú
-        self.create_menu()
+    def setup_improved_ui(self):
+        """Configura la interfaz de usuario mejorada"""
+        # Configurar el fondo principal
+        self.root.configure(bg=self.colors['light'])
         
-        # Frame principal
-        main_frame = tk.Frame(self.root, bg='#ecf0f1')
+        # Crear menú mejorado
+        self.create_improved_menu()
+        
+        # Frame principal con mejor diseño
+        main_frame = tk.Frame(self.root, bg=self.colors['light'])
         main_frame.pack(fill=tk.BOTH, expand=True)
         
-        # Header con logo y título
-        self.create_header(main_frame)
+        # Header profesional con logo destacado
+        self.create_professional_header(main_frame)
         
-        # Área central con botones de módulos
-        self.create_modules_area(main_frame)
+        # Área central con módulos mejorados
+        self.create_improved_modules_area(main_frame)
         
-        # Footer con información
-        self.create_footer(main_frame)
+        # Footer elegante
+        self.create_elegant_footer(main_frame)
     
-    def create_header(self, parent):
-        """Crea el encabezado de la aplicación"""
-        header_frame = tk.Frame(parent, bg='#2c3e50', height=120)
+    def create_professional_header(self, parent):
+        """Crea el encabezado profesional mejorado"""
+        # Header con diseño elegante
+        header_frame = tk.Frame(parent, bg=self.colors['dark'], height=140)
         header_frame.pack(fill=tk.X)
         header_frame.pack_propagate(False)
         
-        # Frame para el contenido del header
-        content_frame = tk.Frame(header_frame, bg='#2c3e50')
-        content_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
+        # Línea decorativa superior
+        top_line = tk.Frame(header_frame, bg=self.colors['primary'], height=4)
+        top_line.pack(fill=tk.X)
         
-        # Cargar y mostrar logo si existe
+        # Contenido del header
+        content_frame = tk.Frame(header_frame, bg=self.colors['dark'])
+        content_frame.pack(fill=tk.BOTH, expand=True, padx=30, pady=15)
+        
+        # Panel izquierdo - Logo destacado
+        left_panel = tk.Frame(content_frame, bg=self.colors['dark'])
+        left_panel.pack(side=tk.LEFT, fill=tk.Y)
+        
+        # Cargar y mostrar logo con mejor presentación
         if os.path.exists("logo.jpg"):
             try:
                 logo_img = Image.open("logo.jpg")
-                logo_img = logo_img.resize((80, 80), Image.Resampling.LANCZOS)
+                # Logo más grande y visible
+                logo_img = logo_img.resize((100, 100), Image.Resampling.LANCZOS)
                 self.logo_image = ImageTk.PhotoImage(logo_img)
                 
+                # Frame para el logo con borde elegante
+                logo_container = tk.Frame(left_panel, bg=self.colors['white'], relief='solid', bd=2)
+                logo_container.pack(padx=(0, 25), pady=5)
+                
                 logo_label = tk.Label(
-                    content_frame,
+                    logo_container,
                     image=self.logo_image,
-                    bg='#2c3e50'
+                    bg=self.colors['white']
                 )
-                logo_label.pack(side=tk.LEFT, padx=(0, 20))
+                logo_label.pack(padx=5, pady=5)
+                
             except Exception as e:
                 print(f"Error al cargar logo: {e}")
+                # Logo por defecto si no se puede cargar
+                default_logo = tk.Label(
+                    left_panel,
+                    text="💧\nLOGO",
+                    font=('Segoe UI', 16, 'bold'),
+                    fg=self.colors['primary'],
+                    bg=self.colors['dark'],
+                    justify=tk.CENTER
+                )
+                default_logo.pack(padx=(0, 25))
         
-        # Información del título
-        title_frame = tk.Frame(content_frame, bg='#2c3e50')
-        title_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        # Panel derecho - Información de la empresa
+        right_panel = tk.Frame(content_frame, bg=self.colors['dark'])
+        right_panel.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         
-        # Título principal
+        # Título principal más prominente
         title_label = tk.Label(
-            title_frame,
-            text="Sistema de Gestión de Agua Potable",
-            font=('Arial', 20, 'bold'),
-            fg='white',
-            bg='#2c3e50'
+            right_panel,
+            text="💧 SISTEMA DE GESTIÓN DE AGUA POTABLE",
+            font=('Segoe UI', 18, 'bold'),
+            fg=self.colors['white'],
+            bg=self.colors['dark']
         )
         title_label.pack(anchor='w', pady=(5, 0))
         
-        # Subtítulo
-        subtitle_label = tk.Label(
-            title_frame,
-            text="Comité de Agua Potable - Gestión Integral",
-            font=('Arial', 12),
+        # Subtítulo de la empresa
+        company_label = tk.Label(
+            right_panel,
+            text="🏢 COMITÉ DE AGUA POTABLE - GESTIÓN PROFESIONAL",
+            font=('Segoe UI', 12, 'bold'),
+            fg=self.colors['secondary'],
+            bg=self.colors['dark']
+        )
+        company_label.pack(anchor='w', pady=(5, 0))
+        
+        # Línea separadora
+        separator = tk.Frame(right_panel, bg=self.colors['primary'], height=2)
+        separator.pack(fill=tk.X, pady=(8, 8))
+        
+        # Información adicional
+        info_label = tk.Label(
+            right_panel,
+            text="✨ Versión Profesional 2.0 | 🐍 Powered by Python",
+            font=('Segoe UI', 10),
             fg='#bdc3c7',
-            bg='#2c3e50'
+            bg=self.colors['dark']
         )
-        subtitle_label.pack(anchor='w')
+        info_label.pack(anchor='w')
         
-        # Información de versión
-        version_label = tk.Label(
-            title_frame,
-            text="Versión 1.0 - Desarrollado con Python",
-            font=('Arial', 9),
-            fg='#95a5a6',
-            bg='#2c3e50'
+        # Status de conexión
+        status_label = tk.Label(
+            right_panel,
+            text="🟢 Sistema Activo • Base de Datos Conectada",
+            font=('Segoe UI', 9, 'bold'),
+            fg=self.colors['success'],
+            bg=self.colors['dark']
         )
-        version_label.pack(anchor='w', pady=(10, 0))
+        status_label.pack(anchor='w', pady=(5, 0))
     
-    def create_modules_area(self, parent):
-        """Crea el área central con los módulos"""
-        modules_frame = tk.Frame(parent, bg='#ecf0f1')
-        modules_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
+    def create_improved_modules_area(self, parent):
+        """Crea el área central con módulos mejorados"""
+        modules_frame = tk.Frame(parent, bg=self.colors['light'])
+        modules_frame.pack(fill=tk.BOTH, expand=True, padx=30, pady=25)
         
-        # Título de la sección
+        # Título de la sección más elegante
+        title_container = tk.Frame(modules_frame, bg=self.colors['white'], relief='solid', bd=1)
+        title_container.pack(fill=tk.X, pady=(0, 25))
+        
         section_title = tk.Label(
-            modules_frame,
-            text="Módulos del Sistema",
-            font=('Arial', 16, 'bold'),
-            fg='#2c3e50',
-            bg='#ecf0f1'
+            title_container,
+            text="🎯 MÓDULOS DEL SISTEMA PROFESIONAL",
+            font=('Segoe UI', 16, 'bold'),
+            fg=self.colors['dark'],
+            bg=self.colors['white']
         )
-        section_title.pack(pady=(0, 20))
+        section_title.pack(pady=12)
         
-        # Frame para los botones de módulos (2x2 grid)
-        buttons_frame = tk.Frame(modules_frame, bg='#ecf0f1')
+        # Frame para los botones de módulos con mejor diseño
+        buttons_frame = tk.Frame(modules_frame, bg=self.colors['light'])
         buttons_frame.pack(expand=True)
         
-        # Módulo 1: Gestión de Usuarios
-        self.create_module_button(
+        # Configurar grid para mejor distribución
+        for i in range(2):
+            buttons_frame.grid_rowconfigure(i, weight=1)
+            buttons_frame.grid_columnconfigure(i, weight=1)
+        
+        # Módulo 1: Gestión de Usuarios (mejorado)
+        self.create_improved_module_button(
             buttons_frame,
-            "👥\nGestión de\nUsuarios",
-            "Crear, buscar y administrar\ninformación de usuarios",
+            "👥",
+            "GESTIÓN DE\nUSUARIOS",
+            "Administración completa de usuarios\n• Crear y editar usuarios\n• Búsqueda avanzada\n• Control de estados",
             self.open_user_management,
-            "#3498db",
+            self.colors['primary'],
             0, 0
         )
         
-        # Módulo 2: Registro de Pagos
-        self.create_module_button(
+        # Módulo 2: Registro de Pagos (mejorado)
+        self.create_improved_module_button(
             buttons_frame,
-            "💰\nRegistro de\nPagos",
-            "Procesar pagos mensuales\ny conceptos adicionales",
+            "💰",
+            "REGISTRO DE\nPAGOS",
+            "Control financiero profesional\n• Pagos mensuales\n• Conceptos adicionales\n• Recibos automáticos",
             self.open_payment_registration,
-            "#27ae60",
+            self.colors['success'],
             0, 1
         )
         
-        # Módulo 3: Configuración
-        self.create_module_button(
+        # Módulo 3: Configuración (mejorado)
+        self.create_improved_module_button(
             buttons_frame,
-            "⚙️\nConfiguración\ndel Sistema",
-            "Gestionar tarifas, conceptos\ny configuración general",
+            "⚙️",
+            "CONFIGURACIÓN\nDEL SISTEMA",
+            "Personalización avanzada\n• Gestión de tarifas\n• Conceptos de cobro\n• Respaldos automáticos",
             self.open_configuration,
-            "#e74c3c",
+            self.colors['warning'],
             1, 0
         )
         
-        # Módulo 4: Reportes (placeholder)
-        self.create_module_button(
+        # Módulo 4: Importar CSV (útil)
+        self.create_improved_module_button(
             buttons_frame,
-            "📊\nReportes y\nEstadísticas",
-            "Generas reportes de pagos\ny estadísticas del sistema",
-            self.show_reports_placeholder,
-            "#9b59b6",
+            "📊",
+            "IMPORTAR\nDATOS CSV",
+            "Migración de datos externa\n• Importar usuarios masivamente\n• Validación automática\n• Reportes de importación",
+            self.open_csv_importer,
+            self.colors['danger'],
             1, 1
         )
     
-    def create_module_button(self, parent, title, description, command, color, row, col):
-        """Crea un botón para un módulo"""
-        # Frame contenedor para el botón
-        button_frame = tk.Frame(parent, bg='#ecf0f1')
-        button_frame.grid(row=row, column=col, padx=20, pady=15, sticky='nsew')
+    def create_improved_module_button(self, parent, icon, title, description, command, color, row, col):
+        """Crea un botón mejorado para módulos"""
+        # Contenedor principal con sombra simulada
+        container = tk.Frame(parent, bg=self.colors['light'])
+        container.grid(row=row, column=col, padx=15, pady=15, sticky='nsew')
         
-        # Configurar grid weights
-        parent.grid_rowconfigure(row, weight=1)
-        parent.grid_columnconfigure(col, weight=1)
+        # Frame del botón con bordes elegantes
+        button_frame = tk.Frame(container, bg=self.colors['white'], relief='solid', bd=2)
+        button_frame.pack(fill=tk.BOTH, expand=True, padx=3, pady=3)
         
-        # Botón principal
-        main_button = tk.Button(
-            button_frame,
-            text=title,
-            command=command,
-            font=('Arial', 14, 'bold'),
-            bg=color,
-            fg='white',
-            width=15,
-            height=6,
-            relief=tk.RAISED,
-            bd=3,
-            cursor='hand2'
+        # Área del icono
+        icon_frame = tk.Frame(button_frame, bg=color, height=80)
+        icon_frame.pack(fill=tk.X)
+        icon_frame.pack_propagate(False)
+        
+        icon_label = tk.Label(
+            icon_frame,
+            text=icon,
+            font=('Segoe UI Emoji', 32),
+            fg=self.colors['white'],
+            bg=color
         )
-        main_button.pack(fill=tk.BOTH, expand=True)
+        icon_label.pack(expand=True)
         
-        # Descripción debajo del botón
-        desc_label = tk.Label(
-            button_frame,
-            text=description,
-            font=('Arial', 9),
-            fg='#7f8c8d',
-            bg='#ecf0f1',
-            wraplength=180,
+        # Área del contenido
+        content_frame = tk.Frame(button_frame, bg=self.colors['white'])
+        content_frame.pack(fill=tk.BOTH, expand=True, padx=15, pady=15)
+        
+        # Título del módulo
+        title_label = tk.Label(
+            content_frame,
+            text=title,
+            font=('Segoe UI', 12, 'bold'),
+            fg=self.colors['dark'],
+            bg=self.colors['white'],
             justify=tk.CENTER
         )
-        desc_label.pack(pady=(5, 0))
+        title_label.pack(pady=(0, 8))
         
-        # Efectos hover
+        # Descripción detallada
+        desc_label = tk.Label(
+            content_frame,
+            text=description,
+            font=('Segoe UI', 9),
+            fg='#7f8c8d',
+            bg=self.colors['white'],
+            wraplength=200,
+            justify=tk.LEFT
+        )
+        desc_label.pack(pady=(0, 12))
+        
+        # Botón de acción
+        action_button = tk.Button(
+            content_frame,
+            text="🚀 ACCEDER",
+            command=command,
+            font=('Segoe UI', 10, 'bold'),
+            bg=color,
+            fg=self.colors['white'],
+            relief='flat',
+            cursor='hand2',
+            padx=20,
+            pady=8
+        )
+        action_button.pack(fill=tk.X)
+        
+        # Efectos hover mejorados
         def on_enter(e):
-            main_button.config(bg=self.darken_color(color))
+            button_frame.config(relief='raised', bd=3)
+            action_button.config(bg=self.darken_color(color))
         
         def on_leave(e):
-            main_button.config(bg=color)
+            button_frame.config(relief='solid', bd=2)
+            action_button.config(bg=color)
         
-        main_button.bind("<Enter>", on_enter)
-        main_button.bind("<Leave>", on_leave)
+        def on_click(e):
+            command()
+        
+        # Bind eventos a todos los elementos para mejor UX
+        for widget in [button_frame, icon_frame, icon_label, content_frame, title_label, desc_label]:
+            widget.bind("<Enter>", on_enter)
+            widget.bind("<Leave>", on_leave)
+            widget.bind("<Button-1>", on_click)
     
-    def create_footer(self, parent):
-        """Crea el pie de la aplicación"""
-        footer_frame = tk.Frame(parent, bg='#34495e', height=60)
+    def create_elegant_footer(self, parent):
+        """Crea el pie de la aplicación elegante"""
+        # Footer con diseño profesional
+        footer_frame = tk.Frame(parent, bg=self.colors['dark'], height=70)
         footer_frame.pack(fill=tk.X, side=tk.BOTTOM)
         footer_frame.pack_propagate(False)
         
-        # Información del pie
-        info_frame = tk.Frame(footer_frame, bg='#34495e')
-        info_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
+        # Línea decorativa superior
+        top_line = tk.Frame(footer_frame, bg=self.colors['primary'], height=3)
+        top_line.pack(fill=tk.X)
         
-        # Información del sistema
+        # Contenido del footer
+        info_frame = tk.Frame(footer_frame, bg=self.colors['dark'])
+        info_frame.pack(fill=tk.BOTH, expand=True, padx=25, pady=12)
+        
+        # Panel izquierdo - Información del sistema
+        left_info = tk.Frame(info_frame, bg=self.colors['dark'])
+        left_info.pack(side=tk.LEFT, fill=tk.Y)
+        
         system_info = tk.Label(
-            info_frame,
-            text="Sistema desarrollado para la gestión eficiente de comités de agua potable",
-            font=('Arial', 10),
-            fg='#bdc3c7',
-            bg='#34495e'
+            left_info,
+            text="💧 Sistema Profesional de Gestión de Agua Potable",
+            font=('Segoe UI', 10, 'bold'),
+            fg=self.colors['white'],
+            bg=self.colors['dark']
         )
-        system_info.pack(side=tk.LEFT)
+        system_info.pack(anchor='w')
         
-        # Información de estado
-        status_info = tk.Label(
-            info_frame,
-            text="Sistema Activo • Base de Datos Conectada",
-            font=('Arial', 9),
-            fg='#2ecc71',
-            bg='#34495e'
+        dev_info = tk.Label(
+            left_info,
+            text="🏢 Desarrollado especialmente para comités de agua potable",
+            font=('Segoe UI', 9),
+            fg='#bdc3c7',
+            bg=self.colors['dark']
         )
-        status_info.pack(side=tk.RIGHT)
+        dev_info.pack(anchor='w', pady=(2, 0))
+        
+        # Panel derecho - Estado del sistema
+        right_info = tk.Frame(info_frame, bg=self.colors['dark'])
+        right_info.pack(side=tk.RIGHT, fill=tk.Y)
+        
+        status_info = tk.Label(
+            right_info,
+            text="🟢 Sistema Operativo • Base de Datos Activa",
+            font=('Segoe UI', 10, 'bold'),
+            fg=self.colors['success'],
+            bg=self.colors['dark']
+        )
+        status_info.pack(anchor='e')
+        
+        version_info = tk.Label(
+            right_info,
+            text="⚡ Versión 2.0 Professional Edition",
+            font=('Segoe UI', 9),
+            fg=self.colors['secondary'],
+            bg=self.colors['dark']
+        )
+        version_info.pack(anchor='e', pady=(2, 0))
     
     def darken_color(self, color):
         """Oscurece un color hexadecimal para efectos hover"""
         color_map = {
+            self.colors['primary']: "#1f5a8c",      # Azul más oscuro
+            self.colors['secondary']: "#2980b9",    # Azul oscuro
+            self.colors['success']: "#1e8449",      # Verde oscuro
+            self.colors['warning']: "#d68910",      # Naranja oscuro
+            self.colors['danger']: "#c0392b",       # Rojo oscuro
             "#3498db": "#2980b9",
             "#27ae60": "#229954",
             "#e74c3c": "#c0392b",

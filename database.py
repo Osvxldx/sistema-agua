@@ -152,6 +152,25 @@ class DatabaseManager:
         finally:
             conn.close()
     
+    def get_next_user_number(self) -> int:
+        """
+        Obtiene el siguiente número de usuario disponible
+        
+        Returns:
+            int: El siguiente número secuencial disponible
+        """
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        
+        try:
+            # Buscar el número más alto
+            cursor.execute('SELECT MAX(numero) FROM usuarios')
+            result = cursor.fetchone()
+            max_number = result[0] if result and result[0] is not None else 0
+            return max_number + 1
+        finally:
+            conn.close()
+    
     def buscar_usuario_por_numero(self, numero: int) -> Optional[Dict]:
         """Busca un usuario por su número"""
         conn = self.get_connection()
