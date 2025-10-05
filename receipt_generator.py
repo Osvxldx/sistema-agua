@@ -26,7 +26,28 @@ class ReceiptGenerator:
         self.ensure_directories()
     
     def create_custom_styles(self):
-        """Crea estilos personalizados mejorados para el recibo"""
+        """
+        Creates and assigns custom paragraph styles for various sections of the receipt.
+
+        This method defines and sets several instance attributes with professional and visually distinct
+        ReportLab ParagraphStyle objects, including:
+            - self.title_style: Style for the main title.
+            - self.subtitle_style: Style for subtitles.
+            - self.company_style: Style for company information.
+            - self.user_info_style: Style for user information.
+            - self.table_header_style: Style for table headers.
+            - self.table_cell_style: Style for table cells.
+            - self.footer_style: Style for the receipt footer.
+
+        Parameters:
+            None
+
+        Returns:
+            None
+
+        Side Effects:
+            Sets instance attributes with custom ParagraphStyle objects for use in receipt generation.
+        """
         # Estilo para el título principal - más prominente
         self.title_style = ParagraphStyle(
             'ProfessionalTitle',
