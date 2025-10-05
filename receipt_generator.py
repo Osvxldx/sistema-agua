@@ -196,7 +196,15 @@ class ReceiptGenerator:
             return None
     
     def build_header(self, pago_data: Dict) -> list:
-        """Construye el encabezado profesional del recibo"""
+        """
+        Construye el encabezado profesional del recibo.
+
+        Args:
+            pago_data (Dict): Diccionario con la información del pago, incluyendo datos del usuario, fecha, monto, etc.
+
+        Returns:
+            list: Lista de elementos ReportLab (principalmente una tabla y un espaciador) que representan el encabezado del recibo.
+        """
         elements = []
         
         # Crear tabla para header con logo y información de empresa
