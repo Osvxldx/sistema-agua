@@ -323,7 +323,7 @@ class ReceiptGenerator:
             for detalle in mensualidades:
                 mes_nombre = self.get_month_name(detalle['mes'])
                 table_data.append([
-                    '🚰 Servicio de Agua Potable',
+                    'Servicio de Agua Potable',
                     f"{mes_nombre} {detalle['anio']}",
                     f"$ {detalle['precio']:.2f}",
                     str(detalle['cantidad']),
