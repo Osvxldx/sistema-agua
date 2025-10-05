@@ -189,9 +189,9 @@ class ReceiptGenerator:
                 logo = Image(logo_path, width=80, height=80)
                 logo_cell = logo
             except:
-                logo_cell = Paragraph("🏢<br/>LOGO", self.company_style)
+                logo_cell = Paragraph("LOGO", self.company_style)
         else:
-            logo_cell = Paragraph("💧<br/>AGUA<br/>POTABLE", self.company_style)
+            logo_cell = Paragraph("AGUA<br/>POTABLE", self.company_style)
         
         # Información de la empresa
         company_info = [
