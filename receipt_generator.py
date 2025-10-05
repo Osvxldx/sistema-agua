@@ -280,7 +280,22 @@ class ReceiptGenerator:
         return elements
     
     def build_payment_details(self, pago_data: Dict) -> list:
-        """Construye los detalles del pago con diseño profesional"""
+        """
+        Builds the payment details section for the receipt with a professional design.
+
+        Args:
+            pago_data (Dict): A dictionary containing payment information. It must include a 'detalles' key,
+                which is a list of dictionaries. Each dictionary in 'detalles' should have the following keys:
+                - 'mes' (int or None): The month number if applicable, or None for other concepts.
+                - 'anio' (int): The year of the payment.
+                - 'precio' (float): The unit price of the service or concept.
+                - 'cantidad' (int): The quantity paid for.
+                - 'concepto' (str): The name of the concept or service.
+
+        Returns:
+            list: A list of ReportLab flowable elements (Paragraph, Spacer, Table, etc.) representing
+                the payment details section to be added to the PDF document.
+        """
         elements = []
         
         # Título de la sección
