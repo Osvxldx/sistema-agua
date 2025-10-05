@@ -237,7 +237,17 @@ class ReceiptGenerator:
         return elements
     
     def build_user_info(self, pago_data: Dict) -> list:
-        """Construye la información del usuario de forma profesional"""
+        """
+        Construye la sección de información del usuario para el recibo de pago.
+
+        Parámetros:
+            pago_data (Dict): Un diccionario que contiene los datos del pago y del usuario,
+                incluyendo las claves 'nombre', 'numero', 'direccion', 'fecha_pago', y 'estado'.
+
+        Retorna:
+            list: Una lista de elementos ReportLab (Paragraph, Table, Spacer) que representan
+                la sección de información del usuario en el recibo.
+        """
         elements = []
         
         # Título de sección
