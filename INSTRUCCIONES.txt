@@ -85,6 +85,11 @@ Si tiene problemas:
 2. Verificar que siguió todos los pasos
 3. Contactar al desarrollador con detalles del error
 
+### 🔀 COLABORACIÓN CON GITHUB
+
+¿Tienes dudas sobre Pull Requests, ramas o cómo subir código?
+👉 Lee el archivo **GUIA_GITHUB.txt** - Explica todo el proceso paso a paso
+
 ---
 
 ### 🎯 INICIO RÁPIDO

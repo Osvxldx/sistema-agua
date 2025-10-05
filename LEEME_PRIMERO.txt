@@ -39,11 +39,12 @@
 
 ┌─ ARCHIVOS IMPORTANTES ────────────────────────────────────────┐
 │                                                               │
-│  📝  main.py          → Aplicación principal                 │
-│  🔧  install.bat      → Instalador automático               │
-│  ▶️   ejecutar.bat     → Ejecutar sistema                    │
-│  📖  README.md        → Documentación completa               │
+│  📝  main.py           → Aplicación principal                │
+│  🔧  install.bat       → Instalador automático              │
+│  ▶️   ejecutar.bat      → Ejecutar sistema                   │
+│  📖  README.md         → Documentación completa              │
 │  📋  INSTRUCCIONES.txt → Guía de instalación                │
+│  🔀  GUIA_GITHUB.txt   → Guía de Git y Pull Requests        │
 │                                                               │
 └───────────────────────────────────────────────────────────────┘
 
@@ -61,6 +62,7 @@
 │  ❓  Problemas: Leer README.md e INSTRUCCIONES.txt           │
 │  🐛  Errores: Contactar al desarrollador                     │
 │  📧  Incluir: Captura de pantalla del error                  │
+│  🔀  GitHub/PRs: Leer GUIA_GITHUB.txt                        │
 │                                                               │
 └───────────────────────────────────────────────────────────────┘
 
