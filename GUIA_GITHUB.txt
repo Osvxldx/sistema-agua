@@ -1,0 +1,286 @@
+╔══════════════════════════════════════════════════════════════╗
+║          GUÍA DE GITHUB PARA COLABORADORES                   ║
+║       Sistema de Gestión de Agua Potable                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+Esta guía explica cómo funciona GitHub y cómo contribuir al proyecto.
+
+┌─ ¿QUÉ ES UN PULL REQUEST? ────────────────────────────────────┐
+│                                                               │
+│  Un "Pull Request" (PR) es una SOLICITUD para que tus       │
+│  cambios sean revisados y agregados al proyecto principal.   │
+│                                                               │
+│  ⚠️  IMPORTANTE: El código NO se sube automáticamente        │
+│     Un PR es como decir "aquí están mis cambios, por favor   │
+│     revísalos y acepta incluirlos en el proyecto".           │
+│                                                               │
+│  El Pull Request es el PASO CORRECTO. No es un error.        │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+┌─ ¿POR QUÉ MI CÓDIGO ESTÁ EN PULL REQUEST? ────────────────────┐
+│                                                               │
+│  Cuando trabajas en GitHub:                                  │
+│                                                               │
+│  1️⃣  Haces cambios en tu rama (branch)                      │
+│  2️⃣  Los subes con "git push"                               │
+│  3️⃣  Creas un Pull Request                                  │
+│  4️⃣  ⏳ ESPERAS que el dueño del proyecto lo REVISE         │
+│  5️⃣  ✅ El dueño ACEPTA (merge) o RECHAZA tu PR             │
+│                                                               │
+│  👉 Tu código ESTÁ EN PULL REQUEST porque está esperando    │
+│     que alguien lo revise y lo acepte. Esto es NORMAL.       │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+┌─ ¿QUÉ PUEDO HACER AHORA? ─────────────────────────────────────┐
+│                                                               │
+│  Si ERES EL DUEÑO del repositorio:                          │
+│  ────────────────────────────────                            │
+│  1. Ve a GitHub.com y entra a tu repositorio                 │
+│  2. Haz clic en la pestaña "Pull Requests"                   │
+│  3. Verás tu PR en la lista - haz clic en él                 │
+│  4. Revisa los cambios                                       │
+│  5. Haz clic en el botón verde "Merge pull request"          │
+│  6. Confirma haciendo clic en "Confirm merge"                │
+│  7. ✅ ¡Listo! Tu código ahora está en la rama principal     │
+│                                                               │
+│  Si NO ERES el dueño del repositorio:                       │
+│  ────────────────────────────────                            │
+│  1. Espera a que el dueño revise tu PR                       │
+│  2. Responde a cualquier comentario o solicitud de cambios   │
+│  3. Si te piden cambios, haz commits adicionales             │
+│  4. Los nuevos commits se agregarán automáticamente al PR    │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+┌─ CONCEPTOS BÁSICOS DE GIT Y GITHUB ───────────────────────────┐
+│                                                               │
+│  📁 REPOSITORIO (Repo)                                       │
+│     Carpeta del proyecto en GitHub. Contiene todo el código. │
+│                                                               │
+│  🌿 RAMA (Branch)                                            │
+│     Versión paralela del código donde trabajas sin afectar   │
+│     el código principal.                                     │
+│                                                               │
+│  📝 COMMIT                                                   │
+│     Guardar cambios con un mensaje descriptivo.              │
+│     Ejemplo: "Agregué nueva función de respaldo"             │
+│                                                               │
+│  ⬆️  PUSH                                                     │
+│     Subir tus commits a GitHub.                              │
+│                                                               │
+│  🔄 PULL REQUEST (PR)                                        │
+│     Solicitud para fusionar tus cambios al proyecto.         │
+│                                                               │
+│  ✅ MERGE                                                    │
+│     Aceptar un PR e integrar los cambios al código principal.│
+│                                                               │
+│  🌳 MAIN / MASTER                                            │
+│     Rama principal del proyecto (código oficial).            │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+┌─ FLUJO DE TRABAJO TÍPICO ─────────────────────────────────────┐
+│                                                               │
+│  Escenario: Quieres agregar una nueva función                │
+│                                                               │
+│  PASO 1: Crear una rama                                      │
+│  $ git checkout -b mi-nueva-funcion                          │
+│                                                               │
+│  PASO 2: Hacer cambios en el código                          │
+│  (Editar archivos en tu editor)                              │
+│                                                               │
+│  PASO 3: Guardar cambios (commit)                            │
+│  $ git add .                                                 │
+│  $ git commit -m "Agregué función de exportar a Excel"      │
+│                                                               │
+│  PASO 4: Subir a GitHub (push)                               │
+│  $ git push origin mi-nueva-funcion                          │
+│                                                               │
+│  PASO 5: Crear Pull Request                                  │
+│  - Ve a GitHub.com                                           │
+│  - Verás un botón "Compare & pull request"                   │
+│  - Haz clic y describe tus cambios                           │
+│  - Crea el Pull Request                                      │
+│                                                               │
+│  PASO 6: Esperar revisión                                    │
+│  ⏳ El dueño del proyecto revisará tu PR                     │
+│                                                               │
+│  PASO 7: Merge (cuando sea aprobado)                         │
+│  ✅ El dueño hace clic en "Merge"                            │
+│  ✅ Tu código ahora está en la rama principal                │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+┌─ SOLUCIÓN A: ERES EL DUEÑO Y QUIERES ACEPTAR TU PR ───────────┐
+│                                                               │
+│  Si creaste un PR en tu propio repositorio:                  │
+│                                                               │
+│  1. Ve a: https://github.com/TU-USUARIO/TU-REPO/pulls       │
+│                                                               │
+│  2. Haz clic en tu Pull Request                              │
+│                                                               │
+│  3. Desplázate hacia abajo                                   │
+│                                                               │
+│  4. Verás un botón verde: "Merge pull request"               │
+│     (Si no lo ves, puede haber conflictos - lee más abajo)   │
+│                                                               │
+│  5. Haz clic en "Merge pull request"                         │
+│                                                               │
+│  6. Haz clic en "Confirm merge"                              │
+│                                                               │
+│  7. ✅ ¡Listo! Tu código ahora está en la rama main          │
+│                                                               │
+│  8. (Opcional) Puedes borrar la rama después del merge       │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+┌─ SOLUCIÓN B: HAY CONFLICTOS ──────────────────────────────────┐
+│                                                               │
+│  Si ves "This branch has conflicts that must be resolved":   │
+│                                                               │
+│  Opción 1 - Resolver en GitHub (más fácil):                  │
+│  ──────────────────────────────────────────                  │
+│  1. Haz clic en "Resolve conflicts"                          │
+│  2. Edita el archivo para resolver conflictos                │
+│  3. Marca como resuelto                                      │
+│  4. Haz clic en "Commit merge"                               │
+│  5. Ahora puedes hacer merge                                 │
+│                                                               │
+│  Opción 2 - Resolver localmente (avanzado):                  │
+│  ──────────────────────────────────────                      │
+│  1. $ git checkout main                                      │
+│  2. $ git pull origin main                                   │
+│  3. $ git checkout tu-rama                                   │
+│  4. $ git merge main                                         │
+│  5. Resolver conflictos en los archivos                      │
+│  6. $ git add .                                              │
+│  7. $ git commit -m "Resueltos conflictos"                   │
+│  8. $ git push origin tu-rama                                │
+│  9. Ahora puedes hacer merge del PR en GitHub                │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+┌─ PREGUNTAS FRECUENTES ────────────────────────────────────────┐
+│                                                               │
+│  ❓ ¿Por qué mi código no está en main automáticamente?     │
+│  ➡️  Porque los Pull Requests son revisiones. Debes hacer   │
+│     "merge" manualmente para que el código pase a main.      │
+│                                                               │
+│  ❓ ¿Puedo hacer cambios después de crear el PR?            │
+│  ➡️  ¡Sí! Solo haz más commits en la misma rama y haz       │
+│     push. Se agregarán automáticamente al PR.                │
+│                                                               │
+│  ❓ ¿Qué pasa si cierro el PR sin hacer merge?              │
+│  ➡️  Los cambios quedan en tu rama pero NO en main.         │
+│     Puedes reabrir el PR después si quieres.                 │
+│                                                               │
+│  ❓ ¿Cómo sé si el PR fue aceptado?                          │
+│  ➡️  Verás "Merged" en morado junto al título del PR.       │
+│     También puedes ver los cambios en la rama main.          │
+│                                                               │
+│  ❓ ¿Puedo trabajar en varios PR a la vez?                   │
+│  ➡️  ¡Sí! Crea una rama diferente para cada PR.             │
+│                                                               │
+│  ❓ Mi PR dice "1 commit behind main", ¿es problema?         │
+│  ➡️  No necesariamente. Significa que main tiene commits    │
+│     nuevos desde que creaste tu rama. Puedes:                │
+│     • Ignorarlo si no afecta tu código                       │
+│     • Actualizar tu rama: git merge main (si hay conflictos) │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+┌─ COMANDOS GIT ÚTILES ─────────────────────────────────────────┐
+│                                                               │
+│  Ver estado actual:                                          │
+│  $ git status                                                │
+│                                                               │
+│  Ver ramas:                                                  │
+│  $ git branch                                                │
+│                                                               │
+│  Cambiar de rama:                                            │
+│  $ git checkout nombre-rama                                  │
+│                                                               │
+│  Crear y cambiar a nueva rama:                               │
+│  $ git checkout -b nueva-rama                                │
+│                                                               │
+│  Ver historial de commits:                                   │
+│  $ git log                                                   │
+│                                                               │
+│  Actualizar desde GitHub:                                    │
+│  $ git pull                                                  │
+│                                                               │
+│  Ver diferencias:                                            │
+│  $ git diff                                                  │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+┌─ BUENAS PRÁCTICAS ────────────────────────────────────────────┐
+│                                                               │
+│  ✅ Usa nombres descriptivos para ramas                      │
+│     Bueno: "agregar-exportacion-excel"                       │
+│     Malo: "cambios" o "nueva-rama"                           │
+│                                                               │
+│  ✅ Escribe mensajes de commit claros                        │
+│     Bueno: "Corregido error en cálculo de totales"          │
+│     Malo: "fix" o "cambios"                                  │
+│                                                               │
+│  ✅ Haz commits pequeños y frecuentes                        │
+│     Mejor hacer varios commits pequeños que uno grande       │
+│                                                               │
+│  ✅ Describe bien tus Pull Requests                          │
+│     Explica qué cambios hiciste y por qué                    │
+│                                                               │
+│  ✅ Revisa tu propio código antes de crear el PR             │
+│     Asegúrate que funciona y no hay errores                  │
+│                                                               │
+│  ✅ Crea respaldos antes de cambios importantes              │
+│     Por si algo sale mal, puedes volver atrás                │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+┌─ RECURSOS ADICIONALES ────────────────────────────────────────┐
+│                                                               │
+│  📖 Documentación oficial de GitHub:                         │
+│     https://docs.github.com/es                               │
+│                                                               │
+│  📖 Guía de Git (español):                                   │
+│     https://git-scm.com/book/es/v2                           │
+│                                                               │
+│  🎓 Tutorial interactivo de Git:                             │
+│     https://learngitbranching.js.org/?locale=es_ES           │
+│                                                               │
+│  💬 Si tienes dudas sobre el proyecto específicamente:       │
+│     Crea un "Issue" en GitHub o contacta al desarrollador    │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+╔══════════════════════════════════════════════════════════════╗
+║                        RESUMEN                               ║
+╚══════════════════════════════════════════════════════════════╝
+
+🎯 LO MÁS IMPORTANTE:
+
+  Un Pull Request NO ES UN ERROR. Es el proceso correcto.
+  
+  Tu código está esperando ser revisado y aceptado (merged).
+  
+  Para que el código pase a la rama principal (main):
+  
+  1. Ve a GitHub.com
+  2. Entra a tu repositorio
+  3. Ve a "Pull Requests"
+  4. Abre tu PR
+  5. Haz clic en "Merge pull request"
+  6. Confirma el merge
+  
+  ✅ ¡Eso es todo! Tu código ahora está en main.
+
+───────────────────────────────────────────────────────────────
+
+¿Sigues teniendo dudas? No te preocupes, es normal al principio.
+GitHub puede parecer complicado, pero con práctica se vuelve fácil.
+
+             © 2024 Sistema de Gestión de Agua Potable
+                    Guía de GitHub para Colaboradores

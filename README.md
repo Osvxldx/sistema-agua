@@ -86,6 +86,7 @@ sistema-agua-potable/
 ├── ejemplo.jpg            # Imagen de ejemplo
 ├── install.bat            # Instalador automático
 ├── README.md              # Este archivo
+├── GUIA_GITHUB.txt        # Guía de Git y GitHub
 └── recibos/               # Carpeta de recibos generados
 ```
 
@@ -184,6 +185,21 @@ numero,1,2,3,4,5,6,7,8,9,10,11,12
 - **PDF:** ReportLab
 - **Imágenes:** Pillow (PIL)
 - **Fechas:** python-dateutil
+
+## Colaboración y Contribuciones
+
+### Trabajar con GitHub
+Si deseas contribuir al proyecto o tienes dudas sobre cómo funciona GitHub:
+- **Lee la guía completa:** `GUIA_GITHUB.txt` - Explica Pull Requests, ramas, commits y más
+- Incluye instrucciones paso a paso para colaboradores
+- Responde preguntas frecuentes sobre Git y GitHub
+
+### Flujo de Trabajo
+1. Crea una rama para tus cambios
+2. Haz commits con mensajes descriptivos
+3. Sube tus cambios con `git push`
+4. Crea un Pull Request en GitHub
+5. Espera revisión y merge
 
 ## Licencia y Soporte
 
